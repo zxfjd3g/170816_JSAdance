@@ -15,12 +15,12 @@
   * 便于阅读和交流
 3. 如何定义函数?
   * 函数声明
-  * 表达式
+  * 函数表达式
 4. 如何调用(执行)函数?
-  * test()
-  * new test()
-  * obj.test()
-  * test.call/apply(obj)
+  * test(): 直接调用  window
+  * new test(): new调用  new出来的对象
+  * obj.test(): 对象调用  obj
+  * test.call/apply(obj): 函数对象的call调用  obj
 -->
 <script type="text/javascript">
 
@@ -28,10 +28,27 @@
   /*
   编写程序实现以下功能需求:
     1. 根据年龄输出对应的信息
-    2. 如果小于18, 输出: 未成年, 再等等!
+    2. 如果小于18, 输出:
     3. 如果大于60, 输出: 算了吧!
     4. 其它, 输出: 刚好!
   */
+  function showInfo(age) {
+    if(age<18) {
+      console.log('未成年, 再等等!')
+    } else if(age>60) {
+      console.log('算了吧!')
+    } else {
+      console.log('刚好!')
+    }
+  }
+
+  showInfo(17)
+  showInfo(34)
+  showInfo(61)
+
+  var fn = function () {
+
+  }
 </script>
 </body>
 </html>

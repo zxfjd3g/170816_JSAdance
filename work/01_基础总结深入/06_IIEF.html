@@ -15,6 +15,27 @@
 -->
 <script type="text/javascript">
 
+  var a = 2
+  console.log(a)
+
+  (function (window) {
+    var a = 2
+    console.log(a)
+
+    function fn1() { // 对于外部是私有的
+
+    }
+
+    function fn2() {
+
+    }
+
+    window.fn2 = fn2 // 向外部暴露的数据
+  })(window)
+
+
+
+
 </script>
 
 </body>

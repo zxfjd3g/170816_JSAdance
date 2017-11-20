@@ -16,10 +16,61 @@
   * obj.test()
   * new test()
   * test.call(obj)  test.apply(obj)
+  * 回调函数
+      * DOM事件回调函数: 发生事件的DOM元素
+      * 定时器: window
+      * ajax函数: window
+      * 数组一些方法的回调函数: window
 前置知识:
   * 本质上任何函数在执行时都是通过某个对象调用的
 -->
 <script type="text/javascript">
+
+  function Person(color) {
+    console.log(this)
+    this.color = color;
+    this.getColor = function () {
+      console.log(this)
+      return this.color;
+    };
+    this.setColor = function (color) {
+      console.log(this)
+      this.color = color;
+    };
+  }
+
+  Person("red"); //this是谁?  window
+
+  var p = new Person("yello"); //this是谁?  p
+
+  p.getColor(); //this是谁?  p
+
+  var obj = {};
+  p.setColor.call(obj, "black"); //this是谁?  obj
+
+  var test = p.setColor;
+  test(); //this是谁?   window
+
+  function fun1() {
+    function fun2() {
+      console.log(this);
+    }
+
+    fun2(); //this是谁?  window
+  }
+  fun1();
+
+  function fn() {
+    console.log(this)
+  }
+  fn()
+  // fn.bind(obj)返回新的函数, 函数的定义与fn一样, 只是函数中的this强制绑定为obj
+  // fn本身一点也没变
+  var fn2  = fn.bind(obj)
+  fn() // window
+  fn2() // obj
+  fn = fn.bind(obj)
+  fn() // 此时执行的不再是前面定义fn函数
 </script>
 </body>
 </html>
