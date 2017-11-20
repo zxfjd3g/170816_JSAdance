@@ -11,6 +11,19 @@
   * 属性名不确定
 -->
 <script type="text/javascript">
+  var obj = {}
+  // 1. 给对象添加属性: content-type : 'text/json'
+
+  // obj.content-type = 'text/json' // 属性名不是合法的标识名
+  obj['content-type'] = 'text/json'
+  console.log(obj['content-type'])
+
+  // 2. 给对象添加一个属性, 但属性名和值都不确定
+  var propName = 'myName'
+  var value = 'xfzhang'
+  // obj.propName = value
+  obj[propName] = value
+
 </script>
 </body>
 </html>
