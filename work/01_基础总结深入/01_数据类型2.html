@@ -23,6 +23,45 @@
 -->
 
 <script type="text/javascript">
+  /*1. undefined与null的区别?*/
+  // 1. 没有赋值的变量, 变量值是undefined
+  var a
+  console.log(a) // undefined
+  //2. 对象不存在的属性, 取属性值是undefined
+  a = {}
+  console.log(a.b) // undefined
+  // 3. 调用一个没有指定return的函数, 得到就是undefined
+  function fn () {
+
+  }
+  console.log(fn()) // undefined
+  // 给了值, 且值为null
+  var b = null
+  console.log(b) // null
+  b = {
+    a: null
+  }
+  console.log(b.a) // null
+  function fn2() {
+
+    return null
+  }
+  console.log(fn2()) // null
+
+  /*2. 什么时候给变量赋值为null呢?*/
+  // 1. 初始化时赋值为null, 起提示暗示作用
+  var c = null
+  // 后面进行一些计算/处理
+  c = {
+    name: 'Tom'
+  }
+  // 2. 最后赋值为null, 让变量所指向的对象成为垃圾对象, 就会被垃圾回调器回收, 从而释放对象占用的空间
+  c = null // c占用的空间没有释放
+  console.log(c)
+
+  /*3. 严格区别变量类型与数据类型?*/
+  var d = 3 // d的类型为number
+  d = {n: 3}  // d中保存的是{}对象的地址值
 
 </script>
 </body>
