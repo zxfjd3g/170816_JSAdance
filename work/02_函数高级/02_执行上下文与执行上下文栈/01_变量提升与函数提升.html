@@ -15,6 +15,39 @@
 3. 问题: 变量提升和函数提升是如何产生的?
 -->
 <script type="text/javascript">
+  // var a
+/**********************/
+
+  console.log(a) // undefined
+  var a = 3
+
+  fn()
+  function fn() {  // 预处理执行函数定义
+
+  }
+
+  xxx()
+  var xxx = function () { // 动态执行函数定义
+
+  }
+
+  /*
+  执行函数定义: 定义函数/创建函数对象
+  执行函数: 调用函数/执行函数体
+  */
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </script>
 </body>

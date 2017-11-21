@@ -13,10 +13,11 @@
   var A = function() {
 
   }
+  var b = new A()
+  // 给原型对象添加属性: 影响的是前/后的所有实例对象
   A.prototype.n = 1
 
-  var b = new A()
-
+  // 让函数的显式指向一个新的对象: 影响的只是后面创建的对象
   A.prototype = {
     n: 2,
     m: 3
