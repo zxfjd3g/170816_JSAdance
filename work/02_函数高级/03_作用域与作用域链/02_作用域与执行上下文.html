@@ -16,10 +16,25 @@
 3. 联系
   * 上下文环境(对象)是从属于所在的作用域
   * 全局上下文环境==>全局作用域
-  * 函数上下文环境==>对应的函数使用域
+  * 函数上下文环境==>对应的函数作用域
 -->
 <script type="text/javascript">
+  var a = 10,
+    b = 20
+  function fn(x) {
+    var a = 100,
+      c = 300;
+    console.log('fn()', a, b, c, x)
+    function bar(x) {
+      var a = 1000,
+        d = 400
+      console.log('bar()', a, b, c, d, x)
+    }
 
+    bar(100)
+    bar(200)
+  }
+  fn(10)
 </script>
 </body>
 </html>
