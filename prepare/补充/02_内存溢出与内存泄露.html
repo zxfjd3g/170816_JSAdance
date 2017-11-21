@@ -22,7 +22,7 @@
 <script type="text/javascript">
 
   // 1. 内存溢出
-  /*var obj = {}
+ /* var obj = {}
   for (var i = 0; i < 100000; i++) {
     obj[i] = new Array(10000000)
   }
@@ -31,12 +31,15 @@
   // 2. 内存泄露
     // 意外的全局变量
   function fn () {
-    a = [] //不小心没有var定义
+    a = new Array(123213123) //不小心没有var定义
   }
   fn()
+
     // 没有及时清理的计时器
-  setInterval(function  () {
+  var intervalId = setInterval(function  () {
     console.log('----')
+
+    // clearInterval(intervalId)  函数对象不会释放/函数还会继续执行
   }, 1000)
 
 </script>
