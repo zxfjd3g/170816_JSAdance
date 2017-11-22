@@ -15,8 +15,8 @@
   * 这决定了它只能是单线程，否则会带来很复杂的同步问题
 
 3. 代码的分类:
-  * 初始化代码
-  * 回调代码
+  * 初始化代码: 一上来就执行的代码
+  * 回调代码: 回调函数里执行的代码
 4. js引擎执行代码的基本流程
   * 先执行初始化代码: 包含一些特别的代码
     * 设置定时器
@@ -24,7 +24,29 @@
     * 发送ajax请求
   * 后面在某个时刻才会执行回调代码
 -->
+
+<!--
+1. 初始化代码执行完后, 是否立即执行回调代码 ?     不是, 只有达到条件
+2. 回调函数达到条件了, 是否立即执行?              不是, 只有初始化执行完
+-->
 <script type="text/javascript">
+
+  setTimeout(function () {  // setTimeout()是初始化代码
+    console.log('timeout 0')
+  }, 0)
+
+  setTimeout(function () {
+    console.log('timeout 3')
+  }, 3000)
+
+  setTimeout(function () {
+    console.log('timeout 2')
+    alert('2222')
+  }, 2000)
+
+  console.log('alert之前')
+  alert('提示...')  // 暂停当前线程的执行和计时, 点击确定后恢复执行和计时
+  console.log('alert之后')
 </script>
 </body>
 </html>
