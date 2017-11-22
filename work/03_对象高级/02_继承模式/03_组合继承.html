@@ -12,6 +12,31 @@
 -->
 <script type="text/javascript">
 
+  function Person(name, age) {
+    this.name = name
+    this.age = age
+  }
+  Person.prototype.setName = function (name) {
+    this.name = name
+  }
+
+  function Student(name, age, price) { // 身价
+    Person.call(this, name, age)  // this.Person(name, age)
+    this.price = price
+  }
+  // 子类型的原型指向父类型的实例
+  Student.prototype = new Person()
+  // 修正子类型原型对象的constructor为子类
+  Student.prototype.constructor = Student
+
+  Student.prototype.setPrice = function (price) {
+    this.price = price
+  }
+
+  var s = new Student('Tom', 20, 12000)
+  s.setPrice(13000)
+  s.setName('BOB')
+  console.log(s.name, s.age, s.price)
 </script>
 </body>
 </html>
