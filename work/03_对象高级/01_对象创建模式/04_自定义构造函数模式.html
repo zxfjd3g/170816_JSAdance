@@ -14,6 +14,25 @@
 -->
 <script type="text/javascript">
 
+  function Person(name, age) {
+    this.name = name
+    this.age = age
+    this.setName = function (name) {
+      this.name = name
+    }
+  }
+
+  function Dog(name) {
+    this.name = name
+  }
+
+  var p1 = new Person('Tom', 23)  // p1是Person类型
+  var p2 = new Person('Jack', 24)
+
+  var d1 = new Dog('xxx') // d1是Dog类型
+  var d2 = new Dog('yyy')
+
+
 </script>
 </body>
 </html>
